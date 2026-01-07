@@ -38,7 +38,7 @@ async function searchWithSerper(query: string): Promise<SearchResponse> {
       },
       body: JSON.stringify({
         q: query,
-        num: 5,
+        num: 8,
         location: "Saudi Arabia",
         gl: "sa",
         hl: "ar",
@@ -52,7 +52,7 @@ async function searchWithSerper(query: string): Promise<SearchResponse> {
       },
       body: JSON.stringify({
         q: query,
-        num: 6,
+        num: 8,
         location: "Saudi Arabia",
         gl: "sa",
         hl: "ar",
