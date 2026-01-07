@@ -235,14 +235,6 @@ The app can be deployed to any platform supporting Next.js:
 - **Search**: Serper.dev API
 - **Icons**: Lucide React
 
-## 📄 License
-
-This project is created for demonstration purposes as part of a technical assessment.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 ---
 
 Built with ❤️ using Next.js and OpenAI
