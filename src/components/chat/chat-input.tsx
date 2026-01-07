@@ -74,7 +74,7 @@ export function ChatInput({
           className={cn(
             "flex items-end gap-2 rounded-2xl border bg-background/80 backdrop-blur-sm p-3 shadow-lg transition-all duration-200",
             "focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20",
-            isSearchMode && "border-blue-500/30 ring-2 ring-blue-500/10"
+            isSearchMode && "border-blue-500/50 ring-2 ring-blue-500/20"
           )}
         >
           {/* Mode Toggle */}
@@ -88,8 +88,8 @@ export function ChatInput({
                   className={cn(
                     "h-9 w-9 rounded-xl transition-all duration-200",
                     !isSearchMode
-                      ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "bg-emerald-500 text-white hover:bg-emerald-600 shadow-md shadow-emerald-500/30"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   )}
                   onClick={() => isSearchMode && onToggleSearchMode()}
                 >
@@ -108,8 +108,8 @@ export function ChatInput({
                   className={cn(
                     "h-9 w-9 rounded-xl transition-all duration-200",
                     isSearchMode
-                      ? "bg-blue-500/10 text-blue-500"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "bg-blue-500 text-white hover:bg-blue-600 shadow-md shadow-blue-500/30"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   )}
                   onClick={() => !isSearchMode && onToggleSearchMode()}
                 >
@@ -167,7 +167,7 @@ export function ChatInput({
                     className={cn(
                       "h-9 w-9 rounded-xl transition-all duration-200",
                       input.trim()
-                        ? "bg-primary text-primary-foreground"
+                        ? "bg-primary text-primary-foreground shadow-md"
                         : "bg-muted text-muted-foreground"
                     )}
                     onClick={handleSend}
@@ -186,10 +186,10 @@ export function ChatInput({
         <div className="absolute -top-6 left-1/2 -translate-x-1/2">
           <div
             className={cn(
-              "flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-all duration-300",
+              "flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 shadow-sm",
               isSearchMode
-                ? "bg-blue-500/10 text-blue-500"
-                : "bg-primary/10 text-primary"
+                ? "bg-blue-500 text-white"
+                : "bg-emerald-500 text-white"
             )}
           >
             {isSearchMode ? (
@@ -209,4 +209,3 @@ export function ChatInput({
     </TooltipProvider>
   );
 }
-

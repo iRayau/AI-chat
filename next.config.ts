@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
         hostname: "**",
       },
     ],
+    // Cache images for 10 minutes (600 seconds)
+    minimumCacheTTL: 600,
   },
   experimental: {
     serverActions: {

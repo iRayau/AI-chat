@@ -18,7 +18,8 @@ export function useChat(options?: UseChatOptions) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const [isSearchMode, setIsSearchMode] = useState(false);
-  const [latestSearchResults, setLatestSearchResults] = useState<SearchResponse | null>(null);
+  const [latestSearchResults, setLatestSearchResults] =
+    useState<SearchResponse | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
   const searchMutation = useMutation({
@@ -77,16 +78,14 @@ export function useChat(options?: UseChatOptions) {
           // Store the latest search results for tab navigation
           setLatestSearchResults(searchResponse);
 
-          // Update assistant message with search results
+          // Update assistant message with search results - store images separately
           setMessages((prev) =>
             prev.map((msg) =>
               msg.id === assistantMessageId
                 ? {
                     ...msg,
-                    searchResults: searchResults?.map((r) => ({
-                      ...r,
-                      images: searchImages,
-                    })),
+                    searchResults: searchResults,
+                    searchImages: searchImages,
                   }
                 : msg
             )
@@ -106,8 +105,7 @@ export function useChat(options?: UseChatOptions) {
         if (isSearchMode && searchResults && searchResults.length > 0) {
           const searchContext = searchResults
             .map(
-              (r, i) =>
-                `[${i + 1}] ${r.title}\nURL: ${r.url}\n${r.snippet}`
+              (r, i) => `[${i + 1}] ${r.title}\nURL: ${r.url}\n${r.snippet}`
             )
             .join("\n\n");
 

@@ -5,6 +5,7 @@ export interface Message {
   timestamp: Date;
   isStreaming?: boolean;
   searchResults?: SearchResult[];
+  searchImages?: SearchImage[];
 }
 
 export interface SearchResult {
@@ -12,7 +13,6 @@ export interface SearchResult {
   url: string;
   snippet: string;
   thumbnail?: string;
-  images?: SearchImage[];
 }
 
 export interface SearchImage {
@@ -53,4 +53,3 @@ export interface StreamingState {
   isStreaming: boolean;
   currentMessageId: string | null;
 }
-

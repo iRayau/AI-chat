@@ -99,6 +99,61 @@ For production, add your deployed URL:
 
 Without Serper API key, the app will use mock search results for demonstration.
 
+## 💾 Setting Up Supabase (For Chat Persistence)
+
+Chat history is stored in Supabase. Follow these steps to set it up:
+
+### 1. Create a Supabase Project
+
+1. Go to [Supabase](https://supabase.com) and create an account
+2. Create a new project
+3. Wait for the project to be provisioned
+
+### 2. Get Your API Keys
+
+1. Go to **Project Settings** → **API**
+2. Copy the following values to your `.env.local`:
+   - **Project URL** → `NEXT_PUBLIC_SUPABASE_URL`
+   - **anon public** key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - **service_role** key → `SUPABASE_SERVICE_ROLE_KEY` (⚠️ Keep this secret!)
+
+### 3. Create Database Tables
+
+1. Go to **SQL Editor** in your Supabase dashboard
+2. Copy and paste the contents of `supabase/migrations/001_create_tables.sql`
+3. Run the query to create tables with Row Level Security
+
+### Database Schema
+
+The app uses two tables:
+
+**chats**
+| Column | Type | Description |
+|--------|------|-------------|
+| id | UUID | Primary key |
+| user_id | TEXT | User's auth ID |
+| title | TEXT | Chat title |
+| created_at | TIMESTAMP | Creation time |
+| updated_at | TIMESTAMP | Last update time |
+
+**messages**
+| Column | Type | Description |
+|--------|------|-------------|
+| id | UUID | Primary key |
+| chat_id | UUID | Foreign key to chats |
+| user_id | TEXT | User's auth ID |
+| role | TEXT | 'user' or 'assistant' |
+| content | TEXT | Message content |
+| search_results | JSONB | Web search results |
+| search_images | JSONB | Image search results |
+| created_at | TIMESTAMP | Creation time |
+
+### Security
+
+- **Row Level Security (RLS)** is enabled on both tables
+- Users can only access their own chats and messages
+- The service role key bypasses RLS for server-side operations
+
 ## 🎨 Features Overview
 
 ### Chat Mode
