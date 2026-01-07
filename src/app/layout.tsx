@@ -22,7 +22,10 @@ export const metadata: Metadata = {
   keywords: ["AI", "Chat", "Assistant", "Search", "OpenAI"],
   authors: [{ name: "AI Chat" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/icon.svg",
   },
 };
 
