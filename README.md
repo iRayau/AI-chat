@@ -1,8 +1,8 @@
-# Atlas - AI Chat System with Web Search
+# AI Chat System with Web Search
 
 A modern, full-stack AI chat application built with Next.js, featuring Google OAuth authentication, streaming AI responses, and integrated web search capabilities.
 
-![Atlas AI Chat](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![AI Chat](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind-4-38B2AC?style=flat-square&logo=tailwind-css)
 
@@ -169,7 +169,7 @@ The app uses two tables:
 - Expandable/collapsible results
 
 ### UI/UX
-- Atlas-inspired modern design
+- inspired modern design
 - Smooth animations and transitions
 - Keyboard shortcuts (Enter to send)
 - Loading states and error handling
